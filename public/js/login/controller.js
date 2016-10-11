@@ -1,4 +1,14 @@
 app.controller("loginctrl",function($scope,loginfactory){
+   
+     $scope.submitForm=function(loginForm){
+           // console.log(regForm.$valid);
+                if(loginForm.$valid){
+                    $scope.doLogin();
+                }
+                
+            }
+    
+    
     $scope.doLogin=function(){
         
         var loginObject = {
@@ -18,14 +28,19 @@ app.controller("loginctrl",function($scope,loginfactory){
                     }
                 else{
                     //$scope.result="Logged in successfully";
-                    window.location.assign("http://localhost:1234/register.html");
+                    window.location.assign("http://localhost:1234/profile.html");
                 }
             
             
             
         
         },function(error){
-            $scope.result = error;
+            $scope.result = "error occurred";
         });
+    }
+    
+    
+    $scope.forgotpass=function(){
+        window.location.assign("http://localhost:1234/fpass.html");
     }
 })

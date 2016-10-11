@@ -35,14 +35,21 @@ app.controller("regctrl",function($scope,regfactory){
             "useremail":$scope.useremail,
             "username":$scope.username,
             "password1":$scope.password1,
-            "mobile":0,
-            "address":[{"area":"null","city":"null","state":"null","pincode":0,"country":"null"}]
+            /*"mobile":0,
+            "address":[{"area":"null","city":"null","state":"null","pincode":0,"country":"null"}]*/
         };
         
       var promise = regfactory.registerUser(userObject);
         promise.then(function(data){
             console.log("SUCCESS ",data.data.msg);
+            console.log(data.data.finaldata);
+            $scope.result2 = data.data.finaldata;
+            //$scope.profilename= data;
             $scope.result = data.data.msg;
+           // window.location.assign("http://localhost:1234/profile.html");
+            
+            
+            
         },function(error){
             $scope.result = "error occured";
         });

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forgot password</title>
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/fpass/factory.js"></script>
+    <script src="js/fpass/controller.js"></script>
+</head>
+<body ng-app="authapp" ng-controller="forgotpassctrl">
+    <h1>Forgot Password</h1>
+   
+    <form name="forpass"  ng-submit="submitForm(forpass)" novalidate>
+    <input type="email" name="validforemail" ng-model="foremail" placeholder="Email" required/>
+    <span  ng-show="forpass.validforemail.$touched && forpass.validforemail.$invalid && !forpass.validforemail.$error.required">Invalid email </span>
+   
+    <span  ng-show="forpass.validforemail.$touched && forpass.validforemail.$error.required">Cannot be left empty </span>
+    <span  ng-show="submitted && !forpass.validforemail.$touched">Cannot be left empty </span>
+    
+    
+    <input type="submit" ng-click="submitted=true;" value="Send Code">
+    </form>
+    {{result}}
+    
+</body>
+</html>

@@ -125,12 +125,12 @@ sendCode:function (codeObject,response){
        //console.log(result.username); 
         if(result[0]!=undefined){
             console.log("found");
-            response.json[{"msg":"Code send"}]
+            response.json({msg:"Code send"});
         }
         else
             {
                 console.log("notfound");
-                response.json[{"msg":"Email not registered"}];
+                response.json({msg:"Email not registered"});
             }
         //response.json({result});
         

@@ -37,7 +37,7 @@ app.post('/fpass',function(request,response){
     var dbOperations = require("./crudoperation");
     var data =request.body;
     console.log("DATA is      ",data);
-    dbOperations.doLogin(data,response);
+    dbOperations.sendCode(data,response);
     
     //return logintoken;
 });

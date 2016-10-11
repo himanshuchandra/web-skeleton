@@ -30,7 +30,7 @@ app.controller("forgotpassctrl",function($scope,forgotpassfactory){
                 }
             
             */
-            $scope.result=data.data.msg;
+           // $scope.result=data.data.msg;
             
         
         },function(error){

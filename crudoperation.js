@@ -69,8 +69,11 @@ User.create(data,function(error,result){
        response.json({"msg":"Can't Add Error Occured "});
    }
     else{
-       response.json({msg:"Register SuccessFully..."});
+       //response.json({msg:"Register SuccessFully..."});
+       console.log("sfdsgr");
+        console.log(result);
    }
+
 });
 }
 ,
@@ -106,6 +109,38 @@ doLogin:function (loginObject,response){
    }
 });
 }
+,
+sendCode:function (codeObject,response){
+    
+    var User = require("./schemadefine");
+   
+    User.find({"useremail":codeObject.cemail},function(error,result){
+    if(error){
+       console.log("Error Occured",error);
+   }
+    else{ 
+        
+       console.log(result);
+        //console.log(result[0].useremail);
+       //console.log(result.username); 
+        if(result[0]!=undefined){
+            console.log("found");
+            response.json[{"msg":"Code send"}]
+        }
+        else
+            {
+                console.log("notfound");
+                response.json[{"msg":"Email not registered"}];
+            }
+        //response.json({result});
+        
+        //response.json({msg:"Logged in SuccessFully..."});
+       //loginObject.logintoken=true;
+        //return loginObject.logintoken;
+   }
+});
+} 
+
 }
 module.exports =dbOperations; 
 

@@ -32,6 +32,16 @@ app.post('/login',function(request,response){
     //return logintoken;
 });
 
+app.post('/fpass',function(request,response){
+   
+    var dbOperations = require("./crudoperation");
+    var data =request.body;
+    console.log("DATA is      ",data);
+    dbOperations.doLogin(data,response);
+    
+    //return logintoken;
+});
+
 app.listen(1234,function(){
    console.log("Server Start...");
 });

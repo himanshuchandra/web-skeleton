@@ -17,8 +17,8 @@ app.controller("forgotpassctrl",function($scope,forgotpassfactory){
         var promise = forgotpassfactory.cUser(codeObject);
         promise.then(function(data){
             console.log("SUCCESS ",data);
-            var res = data.data.result;
-            
+            //var res = data.data.result;
+            $scope.result=data.data.msg;
             //var token;
             /*
             if(res.length<1){

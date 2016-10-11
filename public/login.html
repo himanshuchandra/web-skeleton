@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/login/factory.js"></script>
+    <script src="js/login/controller.js"></script>
+</head>
+<body ng-app="authapp" ng-controller="loginctrl">
+    <h1>Login Page</h1>
+     <form>
+    <input type="text" ng-model="loginid" placeholder="Email/Username" required>
+
+    <input type="password" ng-model="loginpassword" placeholder="Password" required>
+    
+    <input type="submit" ng-click="doLogin()" value="Login">
+    </form>
+    {{result}}
+</body>
+</html>

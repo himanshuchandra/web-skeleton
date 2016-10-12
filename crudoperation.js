@@ -103,8 +103,7 @@ doLogin:function (loginObject,response){
        console.log(result.data);
         response.json({result});
         //response.json({msg:"Logged in SuccessFully..."});
-       //loginObject.logintoken=true;
-        //return loginObject.logintoken;
+       
    }
 });
 }
@@ -124,7 +123,7 @@ sendCode:function (codeObject,response){
        //console.log(result.username); 
         if(result[0]!=undefined){
             console.log("found");
-            response.json({msg:"Code send"});
+            response.json({msg:"found","finaldata":result});
         }
         else
             {

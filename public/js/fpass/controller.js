@@ -1,7 +1,7 @@
 app.controller("forgotpassctrl",function($scope,forgotpassfactory){
    
    (function(){
-      emailjs.init("userid");
+      emailjs.init("My user id");
    })();
 
 
@@ -23,10 +23,19 @@ app.controller("forgotpassctrl",function($scope,forgotpassfactory){
         promise.then(function(data){
             console.log("SUCCESS ",data);
             //var res = data.data.result;
+            
+            if(data.data.msg==="found")
+            {
+
             $scope.result=data.data.msg;
             var eaddresss=data.data.finaldata[0].useremail;
-            emailjs.send("gmail","forgotpass",{eaddress: eaddresss, tttt: "i got it!"});
+            var code=7889;
+            emailjs.send("gmail","forgotpass",{eaddress: eaddresss, tttt:code});
             
+        } 
+        else{
+            $scope.result=data.data.msg;
+        }
             //var token;
             /*
             if(res.length<1){

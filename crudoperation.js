@@ -123,21 +123,45 @@ sendCode:function (codeObject,response){
        //console.log(result.username); 
         if(result[0]!=undefined){
             console.log("found");
-            response.json({msg:"found","finaldata":result});
+
+            var code = (Math.floor(100000 + Math.random() * 900000)).toString();
+            code = Math.floor(code.substring(-2)/100);   
+            if(code<1000)
+            {
+                code=code+1000;
+            }
+
+            codeObject.fcode=code;
+            caller.savecode(codeObject,response);
+
         }
         else
             {
                 console.log("notfound");
                 response.json({msg:"Email not registered"});
             }
-        //response.json({result});
-        
-        //response.json({msg:"Logged in SuccessFully..."});
-       //loginObject.logintoken=true;
-        //return loginObject.logintoken;
+       
    }
 });
-} 
+},
+
+forgotpass:function (codeObject,response){
+    
+    var User = require("./schemadefine");
+  
+    console.log(codeObject.fcode);
+    User.update({useremail:codeObject.cemail}, {$set:{forgotpasscode:codeObject.fcode}},function(error,result){
+    if(error){
+       console.log("Error Occured",error);
+   }
+    else{ 
+        
+       console.log(result);
+       response.json({msg:"found",code:codeObject.fcode});
+       
+   }
+});
+}  
 
 }
 module.exports =dbOperations; 
@@ -149,6 +173,9 @@ var caller={
     },
     registercaller:function(data,response){
         dbOperations.addUser(data,response);
+    },
+    savecode:function(data,response){
+        dbOperations.forgotpass(data,response);
     }
 }
 //findUser("Ram");

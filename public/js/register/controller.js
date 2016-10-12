@@ -1,4 +1,4 @@
-app.controller("regctrl",function($scope,regfactory){
+app.controller("regctrl",function($scope,regfactory,$window){
     
     $scope.passverified=false;
     
@@ -35,6 +35,7 @@ app.controller("regctrl",function($scope,regfactory){
             "useremail":$scope.useremail,
             "username":$scope.username,
             "password1":$scope.password1,
+            //"forgotpasscode":0,
             /*"mobile":0,
             "address":[{"area":"null","city":"null","state":"null","pincode":0,"country":"null"}]*/
         };
@@ -47,8 +48,8 @@ app.controller("regctrl",function($scope,regfactory){
             regfactory.passdata(finaldata);
             //$scope.profilename= data;
             //$scope.result = data.data.msg;
-            window.location.assign("http://localhost:1234/profile.html");
-            
+            //$window.location.assign("http://localhost:1234/profile.html");
+        
             
             
         },function(error){

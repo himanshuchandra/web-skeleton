@@ -1,8 +1,10 @@
 app.factory("regfactory",function($http,$q){
     //var data= {key,value};
-    var userdata="nodata";
+    var userdata=[];
 
     var object = {
+        mydata:"",
+
         registerUser:function(userObject){
           var defer = $q.defer(); $http.post('http://localhost:1234/register',userObject).then(function(data){
                defer.resolve(data);
@@ -13,19 +15,13 @@ app.factory("regfactory",function($http,$q){
         }
         ,
         passdata:function(finaldata){
-            setdata(finaldata);//return finaldata;
+           this.userdata=finaldata;
+           //setdata(finaldata);//return finaldata;
         } 
         
         };
         
-     setdata=function(finaldata){
-         userdata=finaldata;
-         console.log(userdata);
-     }
      
-     returndata=function(){
-         return userdata;
-     }
 
     return object;
     });

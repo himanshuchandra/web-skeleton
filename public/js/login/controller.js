@@ -1,4 +1,4 @@
-app.controller("loginctrl",function($scope,loginfactory){
+app.controller("loginctrl",function($scope,loginfactory,$window){
    
      $scope.submitForm=function(loginForm){
            // console.log(regForm.$valid);
@@ -28,7 +28,7 @@ app.controller("loginctrl",function($scope,loginfactory){
                     }
                 else{
                     //$scope.result="Logged in successfully";
-                    window.location.assign("http://localhost:1234/profile.html");
+                    $window.location.assign("http://localhost:1234/profile.html");
                 }
             
             

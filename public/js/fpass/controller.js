@@ -1,7 +1,7 @@
 app.controller("forgotpassctrl",function($scope,forgotpassfactory){
    
    (function(){
-      emailjs.init("My user id");
+      emailjs.init("user_x4eg1lcRk0aADgMwe3gB6");
    })();
 
 
@@ -16,6 +16,8 @@ app.controller("forgotpassctrl",function($scope,forgotpassfactory){
     
     $scope.sendCode=function(){
         
+        var emaddress=$scope.foremail;
+
         var codeObject = {
             "cemail":$scope.foremail,
         };
@@ -26,29 +28,14 @@ app.controller("forgotpassctrl",function($scope,forgotpassfactory){
             
             if(data.data.msg==="found")
             {
-
-            $scope.result=data.data.msg;
-            var eaddresss=data.data.finaldata[0].useremail;
-            var code=7889;
-            emailjs.send("gmail","forgotpass",{eaddress: eaddresss, tttt:code});
-            
-        } 
-        else{
+                //console.log(data.data.code);
+            emailjs.send("gmail","forgotpass",{eaddress:emaddress, vercode:data.data.code});
+            $scope.result="Verification code has been sent to your email";
+             } 
+            else{
             $scope.result=data.data.msg;
         }
-            //var token;
-            /*
-            if(res.length<1){
-            console.log("nodata");
-            $scope.result="Wrong email or password";
-                    }
-                else{
-                
-                }
-            
-            */
-           // $scope.result=data.data.msg;
-            
+          
         
         },function(error){
             $scope.result = "error occurred";

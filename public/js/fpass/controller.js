@@ -1,7 +1,7 @@
 app.controller("forgotpassctrl",function($scope,forgotpassfactory){
    
    (function(){
-      emailjs.init("user_x4eg1lcRk0aADgMwe3gB6");
+      emailjs.init("userid");
    })();
 
 

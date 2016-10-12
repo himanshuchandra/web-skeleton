@@ -69,8 +69,7 @@ User.create(data,function(error,result){
        response.json({"msg":"Can't Add Error Occured "});
    }
     else{
-       //response.json({msg:"Register SuccessFully..."});
-       console.log("sfdsgr");
+       response.json({"msg":"Register SuccessFully...","finaldata":result});
         console.log(result);
    }
 

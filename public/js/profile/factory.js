@@ -9,11 +9,11 @@ app.factory("profilefactory",function($http,$q){
            }) 
             return defer.promise;
         }
-            
+         */   
         };
     
     
-    */
+    
     return object;
     
     });

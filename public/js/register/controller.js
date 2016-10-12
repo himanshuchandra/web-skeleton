@@ -41,12 +41,13 @@ app.controller("regctrl",function($scope,regfactory){
         
       var promise = regfactory.registerUser(userObject);
         promise.then(function(data){
-            console.log("SUCCESS ",data.data.msg);
-            console.log(data.data.finaldata);
-            $scope.result2 = data.data.finaldata;
+            console.log("SUCCESS ",data);
+            //console.log(data.data.finaldata);
+            var finaldata = data.data.finaldata;
+            regfactory.passdata(finaldata);
             //$scope.profilename= data;
-            $scope.result = data.data.msg;
-           // window.location.assign("http://localhost:1234/profile.html");
+            //$scope.result = data.data.msg;
+            window.location.assign("http://localhost:1234/profile.html");
             
             
             

@@ -1,5 +1,10 @@
 app.controller("forgotpassctrl",function($scope,forgotpassfactory){
    
+   (function(){
+      emailjs.init("user_x4eg1lcRk0aADgMwe3gB6");
+   })();
+
+
      $scope.submitForm=function(forpass){
            // console.log(regForm.$valid);
                 if(forpass.$valid){
@@ -19,6 +24,8 @@ app.controller("forgotpassctrl",function($scope,forgotpassfactory){
             console.log("SUCCESS ",data);
             //var res = data.data.result;
             $scope.result=data.data.msg;
+            var eaddresss=data.data.finaldata[0].useremail;
+            emailjs.send("gmail","forgotpass",{eaddress: eaddresss, tttt: "i got it!"});
             
             //var token;
             /*
